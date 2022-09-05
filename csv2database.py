@@ -32,7 +32,7 @@ class Honhyo(Base):
     longitude = sa.Column('longitude', sa.Float  )
     age_partyA = sa.Column("age_partyA",sa.String )
     age_partyB = sa.Column("age_partyB",sa.String )
-    day_and_night = sa.Column("day_and_night",sa.String )
+    day_and_night = sa.Column("day_or_night",sa.String )
     weather = sa.Column("weather",sa.String )
     topograpy = sa.Column("topograpy",sa.String )
     road_surface = sa.Column("road_surface",sa.String )
@@ -40,7 +40,7 @@ class Honhyo(Base):
     traffic_light = sa.Column("traffic_light",sa.String )
     
     def __init__(self,prefecture,incident,dead,injured,year,month,day,hours,minutes,latitude,longitude,
-                age_partyA,age_partyB,day_and_night,weather,topograpy,road_surface
+                age_partyA,age_partyB,day_or_night,weather,topograpy,road_surface
                 ,road_shape,traffic_light):
         self.prefecture = prefecture
         self.incident = incident
@@ -55,7 +55,7 @@ class Honhyo(Base):
         self.longitude = longitude
         self.age_partyA = age_partyA
         self.age_partyB = age_partyB
-        self.day_and_night = day_and_night
+        self.day_or_night = day_or_night
         self.weather = weather
         self.topograpy = topograpy
         self.road_surface = road_surface
@@ -63,9 +63,10 @@ class Honhyo(Base):
         self.traffic_light =traffic_light
         
     def __repr__(self):  
-            return "<Honhyo({},{},{},{},{},{},{},{},{},{})>".format(self.prefecture,self.incident,
-                                        self.dead,self.injured,self.year,self.month,self.day,
-                                        self.hours,self.minutes,self.latitude,self.longitude)
+            return "<Honhyo({},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})>".format(self.prefecture,self.incident,
+                                        self.dead,self.injured,self.year,self.month,self.day,self.hours,self.minutes,
+                                        self.latitude,self.longitude,self.age_partyA,self.age_partyB,self.day_or_night,
+                                        self.weather,self.road_surface,self.road_shape,self.traffic_light)
 
 Base.metadata.create_all(conn)
 
@@ -84,7 +85,7 @@ session.add_all([インスタンス1、インスタンス2、インスタンス3
 のように入力する必要がある。
 
 以下の処理ではinstance_listを定義し、
-instance_list = [firsr_instance, second_instance,........]
+instance_list = [first_instance, second_instance,........]
 session.add_all(instance_list)
 """
 
