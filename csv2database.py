@@ -4,7 +4,7 @@ import sqlalchemy as sa
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-WINDOW_DESKTOP_PATH = "/mnt/c/Users/yuwan/Desktop/"
+WINDOW_DESKTOP_PATH = "/mnt/c/Users/*********"
 
 def main():
     csv2database(os.path.join(WINDOW_DESKTOP_PATH,'honhyo.csv'))
